@@ -1,54 +1,63 @@
-Curso-Angular
-Esse repositório tem como objetivo armazenar atividades e anotações feitas no decorrer do curso de Angular 9
+# Curso Angular
 
-SO: UBUNTU
+- A url de inicialização padrão:
+```sh
+localhost:4200
+```
 
-Criando Ambiente de trabalho:
-instalar o Node.js e o seu gerenciador de pacotes (npm) com os seguintes comandos:
+### Configurando Ambiente de trabalho:
+  
+  
+  - Instalar o Node.js:
+```sh
+sudo apt update
+```
+```sh
+sudo apt install nodejs
+```
+  - Instalar o npm:
+```sh
+sudo apt install npm
+```
+ 
+  - Instalar o Angular-Cli com o comando npm install -g @angular
 
--> sudo apt update
--> sudo apt install nodejs
-instalaçao do npm:
+```sh
+npm install -g @angular/cli
+```
 
--> sudo apt install npm
-Instalar o Angular-Cli com o comando npm install -g @angular
+### Criando um projeto Angular
 
--> npm install -g @angular/cli
-Criar a pasta do projeto Angular
+  - Criar um novo projeto:
+```sh
+npm new 'nome-do-projeto'
+```
+```sh
+cd 'nome-do-projeto'
+```
 
--> npm new 'nome-do-projeto'
--> cd 'nome-do-projeto'
-Inicializar aplicação
+### Inicializando a aplicação
+```sh
+ng serve
+```
+- Abrir a aplicação no navegador:
+```sh
+ng serve --open
+```
 
--> ng serve
-Inicializar a aplicação e abrir o navegador:
+## Configurações Adicionais
 
--> ng serve --open
-
-# CursoAngular
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Criar um componente:
+```sh
+ng generate component 'nome-do-componente'
+```
+```sh
+ng g c 'nome-do-componente'
+```
+- Criar um módulo:
+```sh
+ng generate module 'nome-do-módulo'
+```
+```sh
+ng g c 'nome-do-módulo'
+```
