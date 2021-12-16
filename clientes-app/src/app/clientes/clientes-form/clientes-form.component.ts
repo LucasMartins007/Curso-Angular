@@ -1,3 +1,4 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 
@@ -8,11 +9,18 @@ import { Cliente } from '../cliente';
 })
 export class ClientesFormComponent implements OnInit {
 
-  cliente: Cliente | undefined;
+  cliente: Cliente;
+  cpf: string = '999.999.999-99';
   
-  constructor() { }
+  constructor() { 
+      this.cliente = new Cliente();
+      this.cliente.nome = 'Lucas';
+  }
 
   ngOnInit(): void {
   }
 
+  clicar(){
+      console.log('Cliquei');
+  }
 }

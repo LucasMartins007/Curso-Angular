@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Data cadastro: </label>
-                    <input type="text" class="form-control" disabled="true">
+                    <input type="text" class="form-control" disabled="true" />
                 </div>
             </div>
         </div>
@@ -23,19 +23,30 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Nome: </label>
-                    <input type="text" class="form-control">
+                    <!-- Exempĺo de interpolação 
+                            - Unidirecional ( Do Compontens .js para o template .hml)
+                            - entre chaves duplas {{ propriedade }}-->
+                    <input type="text" class="form-control" value="{{ cliente.nome }}" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>CPF: </label>
-                    <input type="text" class="form-control">
+                    <!-- Exemplo de Property Binding
+                        - Unidirecional ( Do Compontens .js para o template .hml)
+                        - entre colchetes [value]=propriedade
+                    -->
+                    <input type="text" class="form-control" [value]="cpf" />
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-2">
-                <button type="submit" class="btn btn-success">
+            <!-- Exemplo de Event Binding
+                 - UniDirecional ( do Template para o Componente .js )
+                 - entre parenteses (evento)=metodo
+            -->
+                <button type="submit" class="btn btn-success" (click)="clicar()" >
                         <i class="fa fa-save"></i> Salvar 
                 </button>
             </div>
