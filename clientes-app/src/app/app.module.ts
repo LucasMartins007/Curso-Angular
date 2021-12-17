@@ -8,20 +8,23 @@ import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ClientesModule } from './clientes/clientes.module';
+import { ClientesService } from './clientes.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    TemplateModule,
-    BrowserAnimationsModule,
-    ClientesModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        TemplateModule,
+        BrowserAnimationsModule,
+        ClientesModule
+    ],
+    providers: [
+        ClientesService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
