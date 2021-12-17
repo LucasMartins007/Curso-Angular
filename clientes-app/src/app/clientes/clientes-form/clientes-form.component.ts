@@ -3,24 +3,22 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 
 @Component({
-  selector: 'app-clientes-form',
-  templateUrl: './clientes-form.component.html',
-  styleUrls: ['./clientes-form.component.css']
+    selector: 'app-clientes-form',
+    templateUrl: './clientes-form.component.html',
+    styleUrls: ['./clientes-form.component.css']
 })
 export class ClientesFormComponent implements OnInit {
 
-  cliente: Cliente;
-  cpf: string = '999.999.999-99';
-  
-  constructor() { 
-      this.cliente = new Cliente();
-      this.cliente.nome = 'Lucas';
-  }
+    cliente: Cliente;
 
-  ngOnInit(): void {
-  }
+    constructor() {
+        this.cliente = new Cliente();
+    }
 
-  clicar(){
-      console.log('Cliquei');
-  }
+    ngOnInit(): void {
+    }
+
+    onSubmit() {
+        console.log(this.cliente);
+    }
 }

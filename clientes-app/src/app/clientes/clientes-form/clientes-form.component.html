@@ -4,18 +4,18 @@
 </ol>
 
 <div class="container">
-    <form>
+    <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>ID: </label>
-                    <input type="text" class="form-control" disabled="true">
+                    <input type="text" class="form-control" disabled="true" name="id" [ngModel]="cliente.id" />
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Data cadastro: </label>
-                    <input type="text" class="form-control" disabled="true" />
+                    <input type="text" class="form-control" disabled="true" name="dataCadastro" [ngModel]="cliente.dataCadastro" />
                 </div>
             </div>
         </div>
@@ -23,10 +23,17 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Nome: </label>
+                    <!-- Exemplo de ngModel 
+                         - BiDirecional ( Atualiza tanto o componente .js quanto o template .html)
+                         - entre cochetes e parenteses [(ngModel)]="propriedade"
+                         - precisa ter a propriedade name na Tag
+                    -->
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome" />
+
                     <!-- Exempĺo de interpolação 
                             - Unidirecional ( Do Compontens .js para o template .hml)
                             - entre chaves duplas {{ propriedade }}-->
-                    <input type="text" class="form-control" value="{{ cliente.nome }}" />
+                    <!-- <input type="text" class="form-control" value="{{ cliente.nome }}"  /> -->
                 </div>
             </div>
             <div class="col-md-6">
@@ -36,17 +43,17 @@
                         - Unidirecional ( Do Compontens .js para o template .hml)
                         - entre colchetes [value]=propriedade
                     -->
-                    <input type="text" class="form-control" [value]="cpf" />
+                    <input type="text" class="form-control" [(ngModel)]="cliente.cpf" name="cpf" />
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-2">
-            <!-- Exemplo de Event Binding
+                <!-- Exemplo de Event Binding
                  - UniDirecional ( do Template para o Componente .js )
                  - entre parenteses (evento)=metodo
             -->
-                <button type="submit" class="btn btn-success" (click)="clicar()" >
+                <button type="submit" class="btn btn-success">
                         <i class="fa fa-save"></i> Salvar 
                 </button>
             </div>
