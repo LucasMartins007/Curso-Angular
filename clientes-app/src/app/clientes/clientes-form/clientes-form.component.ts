@@ -1,6 +1,6 @@
 import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientesService } from 'src/app/clientes.service';
 import { Cliente } from '../cliente';
 
@@ -14,15 +14,33 @@ export class ClientesFormComponent implements OnInit {
     cliente: Cliente;
     success: boolean = false;
     errors: String[] | undefined;
+    id: Number | undefined;
 
     constructor(
         private service: ClientesService,
-        private router: Router
+        private router: Router,
+        private activatedRoute: ActivatedRoute
     ) {
         this.cliente = new Cliente();
     }
 
     ngOnInit(): void {
+        this.getIdCliente();
+        if (this.id) {
+            this.service
+                .getClienteById(this.id)
+                .subscribe(
+                    response => this.cliente = response,
+                    errorResponse => this.cliente = new Cliente()
+                );
+        }
+
+    }
+
+    getIdCliente() {
+        this.activatedRoute.params.subscribe(params =>{
+            this.id = params['id']
+        });
     }
 
     onSubmit() {
