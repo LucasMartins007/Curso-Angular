@@ -11,15 +11,33 @@ import { Cliente } from '../cliente';
 export class ClientesFormComponent implements OnInit {
 
     cliente: Cliente;
+    success: boolean = false;
+    errors: String[] | undefined;
 
-    constructor( private service: ClientesService ) {
-        this.cliente = service.getCliente();
+    constructor(private service: ClientesService) {
+        this.cliente = new Cliente();
     }
 
     ngOnInit(): void {
     }
 
     onSubmit() {
-        console.log(this.cliente);
+        this.service
+            .salvar(this.cliente)
+            .subscribe(response => {
+                this.reiniciarErros();
+                this.success = true;
+                this.cliente = response;
+            }, errorResponse => {
+                this.reiniciarErros();
+                this.success = false;
+                for (var i = 0; i < errorResponse.error.errors!.length; i++) {
+                    this.errors!.push(errorResponse.error.errors[i].defaultMessage);
+                }
+            });
+    }
+
+    reiniciarErros(){
+        this.errors = [];
     }
 }

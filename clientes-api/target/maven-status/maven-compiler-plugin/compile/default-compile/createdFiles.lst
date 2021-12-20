@@ -17,6 +17,6 @@ io/github/dougllasfps/clientes/rest/ApplicationControllerAdvice.class
 io/github/lucas/clientes/rest/dto/ServicoPrestadoDTO.class
 io/github/dougllasfps/clientes/rest/UsuarioController.class
 io/github/dougllasfps/clientes/rest/ServicoPrestadoController.class
+io/github/lucas/clientes/rest/ClienteController.class
 io/github/lucas/clientes/rest/exception/ApiErrors.class
-io/github/dougllasfps/clientes/rest/ClienteController.class
 io/github/lucas/clientes/model/entity/Usuario.class

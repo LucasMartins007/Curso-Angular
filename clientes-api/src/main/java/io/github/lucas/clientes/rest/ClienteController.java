@@ -1,4 +1,4 @@
-package io.github.dougllasfps.clientes.rest;
+package io.github.lucas.clientes.rest;
 
 import io.github.lucas.clientes.model.entity.Cliente;
 import io.github.lucas.clientes.model.repository.ClienteRepository;
