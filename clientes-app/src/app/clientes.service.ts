@@ -12,8 +12,12 @@ export class ClientesService {
     constructor(private http: HttpClient) {
     }
 
-    salvar(cliente: Cliente) : Observable<any> {
-        return this.http.post('http://localhost:8080/api/clientes', cliente);
+    salvar(cliente: Cliente) : Observable<Cliente> {
+        return this.http.post<Cliente>('http://localhost:8080/api/clientes', cliente);
+    }
+
+    atualizar(cliente: Cliente): Observable<any>{
+        return this.http.put<Cliente>(`http://localhost:8080/api/clientes/${cliente.id}`, cliente);
     }
 
     getClientes(): Observable<Cliente[]>{
@@ -23,7 +27,7 @@ export class ClientesService {
     getClienteById(id: Number): Observable<Cliente>{
         return this.http.get<Cliente>(`http://localhost:8080/api/clientes/${id}`);
     }
-    
+
 
     getCliente(): Cliente {
         let cliente: Cliente = new Cliente();
