@@ -45,7 +45,6 @@ export class ClientesFormComponent implements OnInit {
 
     onSubmit() {
         if (this.isUpdate()){
-
             this.service
             .atualizar(this.cliente)
             .subscribe(response => {

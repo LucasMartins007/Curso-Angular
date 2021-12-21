@@ -12,27 +12,23 @@ export class ClientesService {
     constructor(private http: HttpClient) {
     }
 
-    salvar(cliente: Cliente) : Observable<Cliente> {
+    salvar(cliente: Cliente): Observable<Cliente> {
         return this.http.post<Cliente>('http://localhost:8080/api/clientes', cliente);
     }
 
-    atualizar(cliente: Cliente): Observable<any>{
+    atualizar(cliente: Cliente): Observable<Cliente> {
         return this.http.put<Cliente>(`http://localhost:8080/api/clientes/${cliente.id}`, cliente);
     }
 
-    getClientes(): Observable<Cliente[]>{
+    getClientes(): Observable<Cliente[]> {
         return this.http.get<Cliente[]>('http://localhost:8080/api/clientes');
     }
 
-    getClienteById(id: Number): Observable<Cliente>{
+    getClienteById(id: Number): Observable<Cliente> {
         return this.http.get<Cliente>(`http://localhost:8080/api/clientes/${id}`);
     }
 
-
-    getCliente(): Cliente {
-        let cliente: Cliente = new Cliente();
-        cliente.nome = "Lucas de Oliveira";
-        cliente.cpf = "10574732942";
-        return cliente;
+    deletar(cliente: Cliente): Observable<any> {
+        return this.http.delete<Cliente>(`http://localhost:8080/api/clientes/${cliente.id}`);
     }
 }
