@@ -21,12 +21,19 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/servicos-prestados")
-@RequiredArgsConstructor
 public class ServicoPrestadoController  {
 
     private final ClienteRepository clienteRepository;
     private final ServicoPrestadoRepository repository;
     private final BigDecimalConverter bigDecimalConverter;
+
+    public ServicoPrestadoController(ClienteRepository clienteRepository, ServicoPrestadoRepository repository, BigDecimalConverter bigDecimalConverter) {
+        this.clienteRepository = clienteRepository;
+        this.repository = repository;
+        this.bigDecimalConverter = bigDecimalConverter;
+    }
+    
+    
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

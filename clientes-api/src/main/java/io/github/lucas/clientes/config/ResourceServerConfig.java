@@ -18,7 +18,5 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "/api/clientes/**",
                         "/api/servicos-prestados/**").permitAll()
                 .anyRequest().denyAll();
-
-        ;
     }
 }
