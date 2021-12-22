@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ClientesModule } from './clientes/clientes.module';
 import { ClientesService } from './clientes.service';
+import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 
 @NgModule({
     declarations: [
@@ -20,9 +21,10 @@ import { ClientesService } from './clientes.service';
         BrowserModule,
         HttpClientModule,
         AppRoutingModule,
-        TemplateModule,
         BrowserAnimationsModule,
+        TemplateModule,
         ClientesModule,
+        ServicoPrestadoModule
     ],
     providers: [
         ClientesService
