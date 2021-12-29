@@ -1,6 +1,6 @@
 export class Cliente {
-    id: Number | undefined;
-    nome: string | undefined;
-    cpf: string | undefined;
-    dataCadastro: string | undefined;
+    id?: Number;
+    nome?: string;
+    cpf?: string;
+    dataCadastro?: string;
 }

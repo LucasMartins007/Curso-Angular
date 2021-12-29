@@ -16,7 +16,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers(
                         "/api/usuarios",
                         "/api/clientes/**",
-                        "/api/servicos-prestados/**").permitAll()
+                        "/api/servicos-prestados/**",
+                        "/api/swagger-ui.html").permitAll()
                 .anyRequest().denyAll();
     }
 }
