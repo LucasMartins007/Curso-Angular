@@ -47,6 +47,6 @@ Thumbs.db
 .vscode/launch.json
 
 
-target/*
+/clientes-api/target/*
 
 
