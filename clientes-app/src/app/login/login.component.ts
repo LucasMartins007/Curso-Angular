@@ -1,19 +1,30 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
+export class LoginComponent {
 
     userName?: string;
     passWord?: string;
     loginError?: boolean;
+    cadastrando?: boolean;
 
-  constructor() { }
+    constructor( private router : Router ) { }
 
-  onSubmit(){
-      console.log(`User: ${this.userName}, Pass: ${this.passWord}`);
-  }
+    onSubmit() {
+        this.router.navigate(['/home']);
+    }
+
+    prepararCadastro(event: any) {
+        event.preventDefault();
+        this.cadastrando = true;
+    }
+
+    cancelarCadastro(){
+        this.cadastrando = false;
+    }
 }
