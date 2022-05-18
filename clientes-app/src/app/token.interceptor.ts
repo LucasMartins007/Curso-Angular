@@ -1,29 +1,34 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
-import { Observable } from 'rxjs';
+    HttpRequest,
+    HttpHandler,
+    HttpEvent,
+    HttpInterceptor,
+} from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
+    constructor() {}
 
-  constructor() {}
+    intercept(
+        request: HttpRequest<unknown>,
+        next: HttpHandler
+    ): Observable<HttpEvent<unknown>> {
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-  
-    const tokenString = localStorage.getItem('access_token');
-    if (tokenString){
-        const token = JSON.parse(tokenString);
-        const jwt = token.access_token;
-        request = request.clone({
-            setHeaders: {
-                Authorization: 'Bearer ' + jwt   
-            }
-        });
+        const tokenString = localStorage.getItem("access_token");
+        const url = request.url;
+        
+        if (tokenString && (!url.endsWith("oauth/token") || url.endsWith("api/usuarios"))) {
+            console.log("Teste");
+            const token = JSON.parse(tokenString);
+            const jwt = token.access_token;
+            request = request.clone({
+                setHeaders: {
+                    Authorization: "Bearer " + jwt,
+                },
+            });
+        }
+        return next.handle(request);
     }
-    return next.handle(request);
-  }
 }

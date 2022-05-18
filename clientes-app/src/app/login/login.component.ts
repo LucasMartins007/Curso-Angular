@@ -47,6 +47,7 @@ export class LoginComponent {
         usuario.password = this.passWord;
         this.authService.salvar(usuario).subscribe(
             (response) => {
+                console.log("tete");
                 this.loginError = false;
                 this.mensagemSucesso =
                     "Mensagem de cadastro com sucesso, confirme o login!";
