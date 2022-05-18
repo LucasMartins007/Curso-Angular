@@ -1,8 +1,7 @@
-package io.github.dougllasfps.clientes.rest;
+package io.github.lucas.clientes.rest;
 
 import io.github.lucas.clientes.exception.UsuarioCadastradoException;
 import io.github.lucas.clientes.model.entity.Usuario;
-import io.github.lucas.clientes.model.repository.UsuarioRepository;
 import io.github.lucas.clientes.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

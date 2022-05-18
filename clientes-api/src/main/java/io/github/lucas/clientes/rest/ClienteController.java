@@ -1,11 +1,13 @@
 package io.github.lucas.clientes.rest;
 
-import io.github.lucas.clientes.model.entity.Cliente;
-import io.github.lucas.clientes.model.repository.ClienteRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import io.github.lucas.clientes.model.entity.Cliente;
+import io.github.lucas.clientes.model.repository.ClienteRepository;
 
 import javax.validation.Valid;
 import java.util.List;

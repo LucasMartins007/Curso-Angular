@@ -14,41 +14,39 @@ import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping("/api/servicos-prestados")
-public class ServicoPrestadoController  {
+public class ServicoPrestadoController {
 
     @Autowired
     private ClienteRepository clienteRepository;
-    
+
     @Autowired
     private ServicoPrestadoRepository repository;
-    
+
     @Autowired
     private BigDecimalConverter bigDecimalConverter;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ServicoPrestado salvar( @RequestBody @Valid ServicoPrestadoDTO dto ){
+    public ServicoPrestado salvar(@RequestBody @Valid ServicoPrestadoDTO dto) {
         LocalDate data = LocalDate.parse(dto.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         Integer idCliente = dto.getIdCliente();
 
-        Cliente cliente =
-                clienteRepository
+        Cliente cliente
+                = clienteRepository
                         .findById(idCliente)
-                        .orElseThrow(() ->
-                                new ResponseStatusException(
-                                        HttpStatus.BAD_REQUEST, "Cliente inexistente."));
-
+                        .orElseThrow(()
+                                -> new ResponseStatusException(
+                                HttpStatus.BAD_REQUEST, "Cliente inexistente."));
 
         ServicoPrestado servicoPrestado = new ServicoPrestado();
         servicoPrestado.setDescricao(dto.getDescricao());
-        servicoPrestado.setData( data );
+        servicoPrestado.setData(data);
         servicoPrestado.setCliente(cliente);
-        servicoPrestado.setValor( bigDecimalConverter.converter(dto.getPreco())  );
+        servicoPrestado.setValor(bigDecimalConverter.converter(dto.getPreco()));
 
         return repository.save(servicoPrestado);
     }
